@@ -1,0 +1,50 @@
+h2
+{
+    font-weight: bold;
+    font-size: 4em;
+}
+
+body
+{
+    background-color: bisque;
+    margin: 5%;
+    font-family: 'Poppins';
+}
+
+table
+{
+    border: solid black;
+    font-size: 1.5em;
+}
+
+input[type="submit"]
+{
+    width: 250px;
+    height: 70px;
+    background: #2f2f2f;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+a
+{
+    font-size: 1.5em;
+}
+
+p
+{
+    font-size: 2em;
+}
+
+h3{
+    font-size: 2em;
+}
+
+ul
+{
+    font-size: 2em;
+}
