@@ -67,7 +67,15 @@
             $person_totals = array_fill_keys(array_keys($people), 0);
             foreach($_POST['split'] as $person_name => $items){
                 foreach($items as $item_name => $item_total){
-                    $person_totals[$person_name] += $item_total;
+                    $num_ppl = 0;
+                    foreach($_POST['split'] as $p_name => $i){
+                        if(isset($i[$item_name])){
+                            $num_ppl++;
+                        }
+                    }
+                    if($num_ppl > 0){
+                        $person_totals[$person_name] += $item_total / $num_ppl;
+                    }
                 }
             }
             echo "<h3>Split Totals: </h3>";
