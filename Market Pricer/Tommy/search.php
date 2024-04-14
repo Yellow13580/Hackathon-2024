@@ -1,6 +1,9 @@
 <?php
     // File: search.php
     session_start();
+    if(!empty($_GET)){
+        $_SESSION = array_merge($_SESSION, $_GET);
+    }
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
@@ -8,6 +11,17 @@
 
     if(!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])){
         $_SESSION['cart'] = array();
+    }
+
+    if(isset($_SESSION["count"])){
+        $count5 = 0;
+        while ($count5 < $_SESSION["count"])
+        {
+            if (isset($_POST["name".$count5])) {
+                $_SESSION["name".$count5] = $_POST["name".$count5];
+            }
+            $count5++;
+        }
     }
 ?>
 
@@ -62,7 +76,7 @@
         $quantities = isset($_POST['quantity']) ? $_POST['quantity'] : array();
 
         // Remove old cart items that are not part of the current session
-        foreach ($_SESSION['cart'] as $item => $details) {
+        foreach($_SESSION['cart'] as $item => $details){
             if(!in_array($item, $items)){
                 unset($_SESSION['cart'][$item]);
             }
