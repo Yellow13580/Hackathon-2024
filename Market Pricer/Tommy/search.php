@@ -33,6 +33,8 @@
     <title> Search Items </title>
     <meta charset="utf-8" />
     <link href="https://nrs-projects.humboldt.edu/~st10/styles/normalize.css" type="text/css" rel="stylesheet" />
+    <link href="search.css" type="text/css" rel="stylesheet"/>
+
 </head>
 
 <body>

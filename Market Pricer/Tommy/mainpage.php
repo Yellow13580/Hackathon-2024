@@ -11,7 +11,7 @@
     last modified: 4/13/2024
 
     you can run this using the URL:
-    https://nrs-projects.humboldt.edu/~jt346/hackathon2024/mainpage.php
+    https://nrs-projects.humboldt.edu/~tl168/hackathon2024/mainpage.php
 -->
 
 <head>
@@ -36,7 +36,7 @@
     <div class="firstpage">
         <h1> Welcome To <br /> Market Pricer </h1>
         <p> 
-            Market Pricer is our free-to-use website that will help you shop quickly and efficiently when you need to split
+            Marker Pricer is our free-to-use website that will help you shop quickly and efficiently when you need to split
             the cost of one big shopping trip. If you live with other people and shop together, you can split the cost of 
             certain items allowing for easy budgeting between roommates. All you have to do is list how many people
             you want to split it with and your names! 
@@ -94,4 +94,3 @@
     </form>
 </body>
 </html>
-
