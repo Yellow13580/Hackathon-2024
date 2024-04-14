@@ -75,12 +75,8 @@
         $items = isset($_POST['items']) ? $_POST['items'] : array();
         $quantities = isset($_POST['quantity']) ? $_POST['quantity'] : array();
 
-        // Remove old cart items that are not part of the current session
-        foreach($_SESSION['cart'] as $item => $details){
-            if(!in_array($item, $items)){
-                unset($_SESSION['cart'][$item]);
-            }
-        }
+        // Create a new array to store the updated cart
+        $updatedCart = $_SESSION['cart'];
 
         // Add or update the items in the cart
         foreach($items as $item){
@@ -93,18 +89,20 @@
             $price = $row['ITEM_PRICE'];
             $price_per_unit = $row['ITEM_PRICE_PER_UNIT'];
 
-            if(isset($_SESSION['cart'][$item])){
-                $_SESSION['cart'][$item]['quantity'] += $quantity;
+            if(isset($updatedCart[$item])){
+                $updatedCart[$item]['quantity'] += $quantity;
             } else{
-                $_SESSION['cart'][$item] = array(
+                $updatedCart[$item] = array(
                     'quantity' => $quantity,
                     'price' => $price,
                     'price_per_unit' => $price_per_unit
                 );
             }
         }
-    }
 
+        // Update the session cart with the new cart data
+        $_SESSION['cart'] = $updatedCart;
+    }
     // Check if the remove from cart button is clicked
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove_from_cart'])){
         $item_to_remove = $_POST['remove_from_cart'];
