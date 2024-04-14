@@ -92,3 +92,5 @@ with open("Output.txt", "w") as text_file:
             print(product)
             product.clear()
             text_file.write("\n")
+    targetFetch()
+    walmartFetch()
