@@ -15,10 +15,11 @@
 
     if(isset($_SESSION["count"])){
         $count5 = 0;
-        while ($count5 < $_SESSION["count"])
+        while($count5 < $_SESSION["count"])
         {
-            if (isset($_POST["name".$count5])) {
-                $_SESSION["name".$count5] = $_POST["name".$count5];
+            if(isset($_POST["name".$count5])){
+                $name = strip_tags($_POST["name" . $count5]);
+                $_SESSION["name".$count5] = $name;
             }
             $count5++;
         }
@@ -32,18 +33,9 @@
     <title> Search Items </title>
     <meta charset="utf-8" />
     <link href="https://nrs-projects.humboldt.edu/~st10/styles/normalize.css" type="text/css" rel="stylesheet" />
-    <link href="search.css" type="text/css" rel="stylesheet" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-</head>
 </head>
 
 <body>
-    <div class="whole">
-    <div class="f">
     <h2>Enter shopping list items here:</h2>
     <form method="post">
         <input type="text" name="search" placeholder="Search for items..." />
@@ -53,7 +45,7 @@
     <?php
     $conn = hum_conn_no_login();
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search_btn'])){
-        $search = strtolower('%' . $_POST['search'] . '%');
+        $search = strip_tags(strtolower('%' . $_POST['search'] . '%'));
         $query = "select * from item where lower(item_name) like :search";
         $stmt = oci_parse($conn, $query);
         oci_bind_by_name($stmt, ':search', $search);
@@ -77,10 +69,7 @@
         }
         echo "</form>";
     }
-    ?>
-    </div>
-    <div class="e">
-        <?php
+
     // Check if the add to cart button is clicked
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_to_cart'])){
         // Get the selected items and their quantities
@@ -149,14 +138,13 @@
             }
             echo "</table>";
             echo "<form method='post' action='checkout.php'>";
-            echo "<input type='submit' id='chk' value='Checkout'/>";
+            echo "<input type='submit' value='Checkout'/>";
             echo "</form>";
         } else{
             echo "Your cart is empty.";
         }
         oci_close($conn);
         ?>
-    </div>
     </div>
 </body>
 </html>
