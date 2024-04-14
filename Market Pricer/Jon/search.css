@@ -1,0 +1,88 @@
+/* 
+    File: search.css
+    Modified By: Jonathan Thang, Sam Hodgdon
+    Last Modified: 4/14/2024
+*/
+
+div.whole
+{
+    font-family: 'Poppins';
+    display: grid;
+    grid-template-columns: 50% 50%;
+    right: auto;
+    left: auto;
+    margin: 2em;
+    background-color: rgb(97, 141, 131);
+    height: 85%;
+    width: 85%;
+    border-radius: 25px;
+    padding: 5em;
+    box-shadow:  5px 10px;
+}
+
+div.f
+{
+    grid-column: 1 / 2;
+}
+
+div.e
+{
+    grid-column: 2 / 3;
+}
+
+div.e h2{
+    font-size: 3em;
+}
+
+div.f h2{
+    font-size: 3em;
+}
+
+form#something
+{
+    padding: 1em;
+    border-collapse: collapse;
+    margin: 2em 0;
+
+}
+
+form#something 
+{
+    border: .2em solid #ddd;
+
+}
+
+form#something input[type="number"]
+{
+    margin-bottom: 1.5em;
+
+}
+
+div.searchbar
+{
+    border: .5em solid orange;
+
+}
+
+body
+{
+    background-color: white;
+}
+
+div#cart 
+{
+    display: grid;
+
+}
+
+div#cart #chk
+{
+    margin-top: 1.5em;
+
+}
+
+tr
+{
+    background-color: aliceblue;
+    box-shadow:  2px 3px;
+}
